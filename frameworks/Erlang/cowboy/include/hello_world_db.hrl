@@ -1,0 +1,2 @@
+-define(postgres_pool, postgres_pool).
+-define(world_stmt, "world_stmt").

@@ -1,15 +1,17 @@
 %% Feel free to use, reuse and abuse the code in this file.
 
 {application, hello_world, [
-	{description, "Cowboy Hello World example."},
-	{vsn, "1"},
-	{modules, []},
-	{registered, []},
-	{applications, [
-		kernel,
-		stdlib,
-		cowboy
-	]},
-	{mod, {hello_world_app, []}},
-	{env, []}
+    {description, "TechEmpower Framework Benchmarks, Erlang/Cowboy."},
+    {vsn, "1.0.0"},
+    {modules, []},
+    {registered, []},
+    {applications, [
+        kernel,
+        stdlib,
+        epgsql,
+        pooler,
+        cowboy
+    ]},
+    {mod, {hello_world_app, []}},
+    {env, []}
 ]}.

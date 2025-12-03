@@ -1,34 +1,35 @@
 # Cowboy Benchmarking Test
 
-This is the Cowboy portion of a [benchmarking test suite](../) comparing a variety of web development platforms.
+### Test Type Implementation Source Code
 
-### JSON Encoding Test
+* [JSON](src/hello_world_handler_json.erl)
+* [PLAINTEXT](src/hello_world_handler_plaintext.erl)
+* [DB](src/hello_world_handler_db.erl)
+* [QUERY](src/hello_world_handler_query.erl)
+* CACHED QUERY (not implemented)
+* UPDATE (not implemented)
+* FORTUNES (not implemented)
 
-* [JSON test controller](src/hello_world_handler_json.erl)
-
-
-### Data-Store/Database Mapping Test
-Uses the db abstraction class from Kohana
-
-* [DB test controller](src/hello_world_handler_db.erl)
-
-
-## Infrastructure Software Versions
+## Important Libraries
 The tests were run with:
-
-* [Cowboy 2.4.0](https://github.com/ninenines/cowboy)
-* [Erlang 20.3.8.4](http://www.erlang.org/)
-* [MySQL 5.5.29](https://dev.mysql.com/)
+* [Erlang/OTP 28.2](https://github.com/erlang/otp/releases/tag/OTP-28.2)
+* [Cowboy 2.14.2](https://github.com/ninenines/cowboy/releases/tag/2.14.2)
+* [epgsql 4.8.0](https://github.com/epgsql/epgsql/releases/tag/4.8.0)
+* [pooler 1.6.0](https://github.com/epgsql/pooler/releases/tag/1.6.0)
 
 ## Test URLs
-### JSON Encoding Test
+### JSON
 
-http://localhost/json
+http://localhost:8080/json
 
-### Data-Store/Database Mapping Test
+### PLAINTEXT
 
-http://localhost/db
+http://localhost:8080/plaintext
 
-### Variable Query Test
+### DB
 
-http://localhost/db?queries=2
+http://localhost:8080/db
+
+### QUERY
+
+http://localhost:8080/query?queries=

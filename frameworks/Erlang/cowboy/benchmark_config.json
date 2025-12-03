@@ -9,18 +9,18 @@
       "port": 8080,
       "approach": "Realistic",
       "classification": "Micro",
-      "database": "MySQL",
-      "framework": "None",
+      "database": "postgres",
+      "framework": "Cowboy",
       "language": "Erlang",
       "flavor": "None",
       "orm": "Raw",
       "platform": "beam",
-      "webserver": "cowboy",
+      "webserver": "none",
       "os": "Linux",
       "database_os": "Linux",
       "display_name": "Cowboy",
       "notes": "",
-      "tags": ["broken"],
+      "tags": [],
       "versus": ""
   }}]
 }

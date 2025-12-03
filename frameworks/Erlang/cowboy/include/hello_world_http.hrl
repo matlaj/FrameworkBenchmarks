@@ -1,0 +1,3 @@
+-define(HEADER_CONTENT_TYPE, <<"content-type">>).
+-define(MIME_TYPE_APPLICATION_JSON, <<"application/json">>).
+-define(MIME_TYPE_TEXT_PLAIN, <<"text/plain">>).

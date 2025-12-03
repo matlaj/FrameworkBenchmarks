@@ -1,0 +1,7 @@
+_build/
+.dockerignore
+.gitignore
+benchmark_config.json
+cowboy.dockerfile
+Makefile
+README.md

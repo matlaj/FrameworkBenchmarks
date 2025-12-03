@@ -1,39 +1,23 @@
 %% Feel free to use, reuse and abuse the code in this file.
 
-%% @private
 -module(hello_world_app).
 -behaviour(application).
 
-%% API.
--export([start/2]).
--export([stop/1]).
+%% application behaviour callbacks
+-export([
+    start/2,
+    stop/1
+]).
+% ------------------------------------------------------------------------------
 
-%% API.
+-spec start(application:start_type(), term()) -> {ok, pid()}.
+start(_StartType, _StartArgs) ->
+    ok = hello_world_db:start_pool(),
+    ok = hello_world_http:start_listener(),
+    {ok, Pid} = hello_world_sup:start_link(),
+    logger:notice("Hello World server started"),
+    {ok, Pid}.
 
-%% NOTE:
-%%   If size of db testpool is too big (e.g: 5000),
-%%   it will fail travis ci test. So I shrink this to 256.
-%%   blee@techempower.com
-
-
-start(_Type, _Args) ->
-    crypto:start(),
-    application:start(emysql),
-    emysql:add_pool(test_pool, 256,
-                    "benchmarkdbuser", "benchmarkdbpass", "tfb-database", 3306,
-                    "hello_world", utf8),
-    emysql:prepare(db_stmt, <<"SELECT * FROM World where id = ?">>),
-    Dispatch = cowboy_router:compile([
-                                      {'_', [
-                                             {"/plaintext", hello_world_handler_plaintext, []},
-                                             {"/json", hello_world_handler_json, []},
-                                             {"/db", hello_world_handler_db, []},
-                                             {"/query", hello_world_handler_query, []}
-                                            ]}
-                                     ]),
-    {ok, _} = cowboy:start_clear(http, [{port, 8080}], #{env => #{dispatch => Dispatch}}
-                                ),
-    hello_world_sup:start_link().
-
+-spec stop(term()) -> ok.
 stop(_State) ->
     ok.

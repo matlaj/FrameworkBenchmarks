@@ -1,11 +1,15 @@
-FROM erlang:25.1
+FROM erlang:28.2
 
-ADD ./ /cowboy
-WORKDIR /cowboy
+WORKDIR /app
 
-RUN rebar get-deps
-RUN rebar compile
+# Building dependencies first lets Docker cache and reuse this layer.
+COPY rebar.config rebar.lock ./
+RUN rebar3 compile
+
+COPY . .
+
+RUN rebar3 as prod release
 
 EXPOSE 8080
 
-CMD erl -pa ebin deps/*/ebin +sbwt very_long +swt very_low -s hello_world -noshell
+CMD ["/app/_build/prod/rel/hello_world/bin/hello_world", "foreground"]
