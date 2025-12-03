@@ -4,13 +4,13 @@ This is the Cowboy portion of a [benchmarking test suite](../) comparing a varie
 
 ### JSON Encoding Test
 
-* [JSON test controller](src/json_handler.erl)
+* [JSON test controller](src/hello_world_handler_json.erl)
 
 
 ### Data-Store/Database Mapping Test
 Uses the db abstraction class from Kohana
 
-* [DB test controller](src/db_handler.erl)
+* [DB test controller](src/hello_world_handler_db.erl)
 
 
 ## Infrastructure Software Versions
@@ -30,5 +30,5 @@ http://localhost/json
 http://localhost/db
 
 ### Variable Query Test
-    
+
 http://localhost/db?queries=2

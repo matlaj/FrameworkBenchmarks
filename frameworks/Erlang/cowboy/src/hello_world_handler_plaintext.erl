@@ -1,7 +1,7 @@
 %% Feel free to use, reuse and abuse the code in this file.
 
 %% @doc Hello world handler.
--module(plaintext_handler).
+-module(hello_world_handler_plaintext).
 
 -export([init/2]).
 

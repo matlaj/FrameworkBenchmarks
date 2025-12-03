@@ -1,7 +1,7 @@
 %% Feel free to use, reuse and abuse the code in this file.
 
 %% @doc Hello world handler.
--module(db_handler).
+-module(hello_world_handler_db).
 
 -export([init/2]).
 
